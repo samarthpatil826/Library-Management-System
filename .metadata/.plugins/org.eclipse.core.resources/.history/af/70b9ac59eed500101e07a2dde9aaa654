@@ -1,0 +1,13 @@
+package com.jsp.library.servlet;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+import com.jsp.library.service.LibraryService;
+
+@WebServlet("/returnbook")
+public class ReturnBookServlet extends HttpServlet {
+	
+	private LibraryService ls= new LibraryService();
+
+}

@@ -1,0 +1,77 @@
+package com.jsp.library.service;
+
+import java.util.List;
+
+import com.jsp.library.dao.BookDao;
+import com.jsp.library.dao.IssueRecordDao;
+import com.jsp.library.dao.MemberDao;
+import com.jsp.library.entity.Book;
+import com.jsp.library.entity.IssueRecord;
+import com.jsp.library.entity.Member;
+
+public class LibraryService {
+
+	
+	private BookDao bd= new BookDao();
+	private MemberDao md= new MemberDao();
+	private IssueRecordDao rd= new IssueRecordDao();
+	
+	public void addBook(Book b) {
+		
+		bd.addBook(b);
+	}
+	
+	public List<Book> bookList() {
+		
+		return bd.getAllBook();
+	}
+	
+	public void updateBookCopies(int bid, int cp) {
+		
+		bd.updateBookCopies(bid, cp);
+	}
+	
+	public void deleteBook(int bid) {
+		
+		bd.deleteBook(bid);
+	}
+	
+	
+	
+	public void addMember(Member m) {
+		
+		md.addMember(m);
+	}
+	
+	public List<Member> memberList() {
+		
+		return md.getAllMember();
+	}
+	
+	public void updateMember(int mid, String nm) {
+		
+		md.updateEmail(mid, nm);
+	}
+	
+	public void deleteMember(int mid) {
+		
+		md.deleteMember(mid);
+	}
+	
+	
+	
+	public void issueBook(Book b, Member m) {
+		
+		rd.issueBook(b, m);
+	}
+	
+	public List<IssueRecord> getIssueList() {
+		
+		return rd.getAllIssueBooks();
+	}
+	
+	public void returnIssue(int isid) {
+		
+		rd.returnBook(isid);
+	}
+}

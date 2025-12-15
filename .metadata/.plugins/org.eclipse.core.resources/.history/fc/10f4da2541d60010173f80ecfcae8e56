@@ -1,0 +1,9 @@
+package com.jsp.library.servlet;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+@WebServlet("/viewIssueRecords")
+public class ViewIssueRecords extends HttpServlet {
+
+}

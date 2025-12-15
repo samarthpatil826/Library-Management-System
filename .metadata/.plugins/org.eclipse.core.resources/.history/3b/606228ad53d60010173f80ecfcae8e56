@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+body {
+    background-color: #101010;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.table-container {
+    width: 90%;
+    max-width: 900px;
+    margin: 60px auto;
+    text-align: center;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #1A1A1A;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 6px 6px 18px rgba(0,0,0,0.85);
+}
+
+thead {
+    background: #222;
+}
+
+th, td {
+    padding: 14px;
+    border-bottom: 1px solid #333;
+    font-size: 14px;
+     cursor: pointer;
+}
+
+/* Hover effect — NO 3D scale */
+tbody tr {
+    transition: 0.25s ease-in-out;
+}
+
+tbody tr:hover td {
+    background-color: #242424;
+}
+
+
+
+/* tbody tr:hover {
+    background-color: #262626;
+     transform: scale(1.02);
+    box-shadow: 0 0 12px rgba(100, 100, 255, 0.3);
+    cursor: pointer;
+} */
+
+.back-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 10px 20px;
+    background: #4F63FF;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #6E7AFF;
+    transform: translateY(-3px);
+}

@@ -1,0 +1,101 @@
+package com.jsp.library.service;
+
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.List;
+
+import com.jsp.library.dao.BookDao;
+import com.jsp.library.dao.IssueRecordDao;
+import com.jsp.library.dao.MemberDao;
+import com.jsp.library.entity.Book;
+import com.jsp.library.entity.IssueRecord;
+import com.jsp.library.entity.Member;
+
+public class LibraryService {
+
+	
+	private BookDao bd= new BookDao();
+	private MemberDao md= new MemberDao();
+	private IssueRecordDao rd= new IssueRecordDao();
+	
+	public boolean addBook(Book b) {
+		
+		if (bd.addBook(b)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public List<Book> bookList() {
+		
+		return bd.getAllBook();
+	}
+	
+	public void updateBookCopies(int bid, int cp) {
+		
+		bd.updateBookCopies(bid, cp);
+	}
+	
+	public void deleteBook(int bid) {
+		
+		bd.deleteBook(bid);
+	}
+	
+	
+	
+	public boolean addMember(Member m) {
+		
+		if (md.addMember(m)) {
+			return true;
+		} 
+		else
+			return false;
+	}
+	
+	public List<Member> memberList() {
+		
+		return md.getAllMember();
+	}
+	
+	public void updateMember(int mid, String nm) {
+		
+		md.updateEmail(mid, nm);
+	}
+	
+	public void deleteMember(int mid) {
+		
+		md.deleteMember(mid);
+	}
+	
+	
+	
+	public boolean issueBook(Book b, Member m) {
+		
+		return rd.issueBook(b, m);
+	}
+	
+	public List<IssueRecord> getIssueList() {
+		
+		return rd.getAllIssueBooks();
+	}
+	
+	
+	public Member getMemberById(int id) {
+		
+		return md.getMemberById(id);
+	}
+	
+	public Book getBookById(int id) {
+		
+		return bd.getBookById(id);
+	}
+	
+	public boolean returnIssue(int isid) {
+		
+		return rd.returnBook(isid);
+	}
+	
+
+}

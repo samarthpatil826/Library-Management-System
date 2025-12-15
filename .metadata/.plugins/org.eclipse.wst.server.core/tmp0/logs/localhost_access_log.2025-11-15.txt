@@ -1,0 +1,8 @@
+127.0.0.1 - - [15/Nov/2025:00:06:59 +0530] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [15/Nov/2025:00:07:00 +0530] "GET /librarymanagement/index.jsp HTTP/1.1" 404 740
+0:0:0:0:0:0:0:1 - - [15/Nov/2025:00:07:29 +0530] "GET /librarymanagement/addBook.jsp HTTP/1.1" 404 742
+0:0:0:0:0:0:0:1 - - [15/Nov/2025:00:09:38 +0530] "GET /librarymanagement-web/index.jsp HTTP/1.1" 404 766
+127.0.0.1 - - [15/Nov/2025:00:12:08 +0530] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [15/Nov/2025:00:12:11 +0530] "GET /librarymanagement/addBook.jsp HTTP/1.1" 200 907
+0:0:0:0:0:0:0:1 - - [15/Nov/2025:00:12:11 +0530] "GET /librarymanagement/style.css HTTP/1.1" 200 2058
+0:0:0:0:0:0:0:1 - - [15/Nov/2025:00:12:11 +0530] "GET /favicon.ico HTTP/1.1" 404 763

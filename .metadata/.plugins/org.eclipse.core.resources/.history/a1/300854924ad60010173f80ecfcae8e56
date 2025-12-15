@@ -1,0 +1,106 @@
+package com.jsp.library.dao;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+
+import com.jsp.library.entity.Book;
+import com.jsp.library.entity.IssueRecord;
+import com.jsp.library.entity.Member;
+
+public class IssueRecordDao {
+
+	public boolean issueBook(Book b, Member m) {
+		
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("samarth");
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction tr = em.getTransaction();
+		
+		tr.begin();
+		
+		Book bf = em.find(Book.class, b.getBid());
+		Member mf = em.find(Member.class, m.getMid());
+		int ct = bf.getAvlcopy();
+		
+		if (bf!=null && mf!=null) {
+			
+			bf.setAvlcopy(ct-1);
+			
+			IssueRecord rec = new IssueRecord(LocalDate.now(), bf, mf);
+			
+			em.persist(rec);
+			em.merge(bf);
+			
+			tr.commit();
+			
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public boolean returnBook(int isid) {
+		
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("samarth");
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction tr = em.getTransaction();
+		
+		try {
+			tr.begin();
+			
+			IssueRecord rec = em.find(IssueRecord.class, isid);
+			
+			if (rec==null) return false;
+			if (rec.getRdate()!=null) return false;
+			
+			
+			rec.setRdate(LocalDate.now());
+			Book b = rec.getBook();
+			
+			b.setAvlcopy(b.getAvlcopy()+1);
+			
+			em.merge(rec);
+			em.merge(b);
+			
+			tr.commit();
+			return true;
+			
+		} 
+		
+		catch (Exception e) {
+			
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public List<IssueRecord> getAllIssueBooks(){
+		
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("samarth");
+		EntityManager em = emf.createEntityManager();
+//		EntityTransaction tr = em.getTransaction();
+		
+//		tr.begin();
+		
+		Query q = em.createQuery("from IssueRecord");
+		
+		List<IssueRecord> rl = q.getResultList();
+		
+		return rl;
+	}
+	
+	public IssueRecord getRecordById(int id) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("samarth");
+		EntityManager em = emf.createEntityManager();
+		
+		return em.find(IssueRecord.class, id);
+	
+	}
+	
+	
+}
