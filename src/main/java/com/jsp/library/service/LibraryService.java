@@ -1,5 +1,7 @@
 package com.jsp.library.service;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import com.jsp.library.dao.BookDao;
@@ -79,11 +81,6 @@ public class LibraryService {
 		return rd.getAllIssueBooks();
 	}
 	
-	public void returnIssue(int isid) {
-		
-		rd.returnBook(isid);
-	}
-	
 	public Member getMemberById(int id) {
 		
 		return md.getMemberById(id);
@@ -93,4 +90,11 @@ public class LibraryService {
 		
 		return bd.getBookById(id);
 	}
+	
+	public boolean returnIssue(int isid) {
+		
+		return rd.returnBook(isid);
+	}
+	
+
 }
