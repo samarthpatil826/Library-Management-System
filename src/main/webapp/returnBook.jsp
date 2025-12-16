@@ -10,11 +10,13 @@
 <div class="form-container">
     <h2>Return Book</h2>
 
-    <form action="returnbook" method="post">
-        <label>Enter Issue Id</label>
-        <input type="number" name="issueId" required>
+    <form>
+        <label>Book ID</label>
+        <input type="number" name="bookId" required>
 
-       
+        <label>Member ID</label>
+        <input type="number" name="memberId" required>
+
         <button type="submit">Return</button>
     </form>
 

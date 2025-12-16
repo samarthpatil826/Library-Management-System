@@ -44,39 +44,25 @@ public class IssueRecordDao {
 		return false;
 	}
 	
-	public boolean returnBook(int isid) {
+	public void returnBook(int isid) {
 		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("samarth");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction tr = em.getTransaction();
 		
-		try {
-			tr.begin();
-			
-			IssueRecord rec = em.find(IssueRecord.class, isid);
-			
-			if (rec==null) return false;
-			if (rec.getRdate()!=null) return false;
-			
-			
-			rec.setRdate(LocalDate.now());
-			Book b = rec.getBook();
-			
-			b.setAvlcopy(b.getAvlcopy()+1);
-			
-			em.merge(rec);
-			em.merge(b);
-			
-			tr.commit();
-			return true;
-			
-		} 
+		tr.begin();
 		
-		catch (Exception e) {
-			
-			e.printStackTrace();
-			return false;
-		}
+		IssueRecord rec = em.find(IssueRecord.class, isid);
+		
+		rec.setRdate(LocalDate.now());
+		Book b = rec.getBook();
+		
+		b.setAvlcopy(b.getAvlcopy()+1);
+		
+		em.merge(rec);
+		em.merge(b);
+		
+		tr.commit();
 	}
 	
 	public List<IssueRecord> getAllIssueBooks(){
@@ -87,20 +73,10 @@ public class IssueRecordDao {
 		
 //		tr.begin();
 		
-		Query q = em.createQuery("FROM IssueRecord");
+		Query q = em.createQuery("from IssueRecord");
 		
-		List<IssueRecord> rl = q.getResultList();
+		List rl = q.getResultList();
 		
 		return rl;
 	}
-	
-	public IssueRecord getRecordById(int id) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("samarth");
-		EntityManager em = emf.createEntityManager();
-		
-		return em.find(IssueRecord.class, id);
-	
-	}
-	
-	
 }

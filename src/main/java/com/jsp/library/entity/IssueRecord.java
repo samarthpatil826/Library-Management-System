@@ -58,6 +58,14 @@ public class IssueRecord {
 		this.idate = idate;
 	}
 
+//	public LocalDate getRdate() {
+//		return rdate;
+//	}
+//
+//	public void setRdate(LocalDate rdate) {
+//		this.rdate = rdate;
+//	}
+
 	public Book getBook() {
 		return book;
 	}

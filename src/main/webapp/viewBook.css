@@ -1,122 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-:root{
-    --bg:#0f0f10;
-    --card:#1a1a1a;
-    --card-2:#1e1e1e;
-    --muted:#e0e0e0;
-    --accent1: #4F63FF;
-    --accent2: #758BFF;
-    --row-hover:#262626;
-}
-
-/* page */
 body {
+    background-color: #101010;
     font-family: 'Poppins', sans-serif;
-    background-color: var(--bg);
-    color: var(--muted);
+    color: #fff;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
 }
 
-/* container card */
 .table-container {
     width: 90%;
-    max-width: 980px;
+    max-width: 900px;
     margin: 60px auto;
-    background: linear-gradient(180deg, var(--card) 0%, var(--card-2) 100%);
-    padding: 34px;
-    border-radius: 14px;
     text-align: center;
-    box-shadow:
-        12px 12px 30px rgba(0,0,0,0.6),
-        -8px -8px 20px rgba(60,60,60,0.08);
-    transition: transform .25s ease, box-shadow .25s ease;
-}
-.table-container:hover {
-    transform: translateY(-6px);
 }
 
-/* heading */
 h2 {
-    color: #fff;
-    font-weight: 600;
-    margin: 0 0 26px 0;
     font-size: 28px;
+    margin-bottom: 25px;
 }
 
-/* table look */
 table {
     width: 100%;
     border-collapse: collapse;
-    border-radius: 12px;
+    background: #1A1A1A;
+    border-radius: 10px;
     overflow: hidden;
-    background: transparent;
+    box-shadow: 6px 6px 18px rgba(0,0,0,0.85);
 }
 
-/* head */
-thead th {
-    background: rgba(0,0,0,0.18);
-    color: #fff;
-    font-weight: 600;
-    padding: 16px 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
-    border-bottom: 1px solid rgba(255,255,255,0.03);
+thead {
+    background: #222;
 }
 
-/* body cells */
-tbody td {
-    padding: 18px 14px;
-    font-size: 15px;
-    color: var(--muted);
-    border-bottom: 1px solid rgba(255,255,255,0.03);
-    background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+th, td {
+    padding: 14px;
+    border-bottom: 1px solid #333;
+    font-size: 14px;
 }
 
-/* subtle row separation */
-tbody tr + tr td {
-    border-top: 1px solid rgba(255,255,255,0.02);
-}
-
-/* make rows animate and hover like 3D */
-tbody tr {
-    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
-    transform-origin: center;
-}
-
-/* hover effect (3D-like) */
 tbody tr:hover {
-    background-color: var(--row-hover);
-    transform: translateY(-6px) scale(1.01);
-    box-shadow: 0 18px 40px rgba(0,0,0,0.6), 0 4px 12px rgba(80,80,160,0.06);
-    cursor: pointer;
+    background-color: #262626;
 }
 
-/* smaller screens adjustments */
-@media (max-width: 880px) {
-    .table-container { padding: 22px; }
-    thead th, tbody td { padding: 12px 10px; font-size: 14px; }
-}
-
-/* back button */
 .back-btn {
     display: inline-block;
-    margin-top: 26px;
-    padding: 12px 28px;
-    background: linear-gradient(90deg, var(--accent1), var(--accent2));
-    color: #fff;
+    margin-top: 25px;
+    padding: 10px 20px;
+    background: #4F63FF;
+    color: white;
     text-decoration: none;
-    border-radius: 10px;
-    font-weight: 600;
-    transition: transform .2s ease, box-shadow .2s ease;
+    border-radius: 6px;
+    transition: 0.3s;
 }
 
 .back-btn:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(79,99,255,0.25);
+    background: #6E7AFF;
+    transform: translateY(-3px);
 }
